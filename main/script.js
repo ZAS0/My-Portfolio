@@ -102,28 +102,47 @@ setActive();
   });
 });
 
-// Contact form simple validation
+// Initialize EmailJS (must match your public key)
+emailjs.init({
+  publicKey: 'UWbbcZhkGr03f9jnD'
+});
+
 const form = document.getElementById("contactForm");
 const statusEl = document.getElementById("formStatus");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const name = document.getElementById("fullName");
   const email = document.getElementById("email");
   const subject = document.getElementById("subject");
   const message = document.getElementById("message");
   const bot = document.getElementById("website");
+
   if (bot.value) return; // honeypot
+
   if (
     !name.value.trim() ||
     !email.value.trim() ||
     !subject.value.trim() ||
     !message.value.trim()
-  )
-    return;
-  statusEl.style.display = "block";
-  form.reset();
-  setTimeout(() => (statusEl.style.display = "none"), 5000);
+  ) return;
+
+  // send via EmailJS
+  emailjs.sendForm('service_03eqkmv', 'template_xdul4uf', form)
+    .then(() => {
+      statusEl.textContent = "Message sent! I will get back to you soon.";
+      statusEl.style.display = "block";
+      form.reset();
+      setTimeout(() => (statusEl.style.display = "none"), 5000);
+    })
+    .catch(err => {
+      statusEl.textContent = "Failed to send message. Please try again.";
+      statusEl.style.display = "block";
+      console.error(err);
+    });
 });
+
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();

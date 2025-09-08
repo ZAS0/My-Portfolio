@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio • Zeeshan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Animated Background -->
@@ -303,19 +303,22 @@
               <br />
               Hello! I'm <strong>Zeeshan Ahmed Siddiqui</strong>, a Software
               Developer and a Web Developer passionate about transforming
-              creative ideas into interactive, user-centric digital
-              experiences.
-              <br/>
-              <br/>
+              creative ideas into interactive, user-centric digital experiences.
+              <br />
+              <br />
               Being a part of super lean teams, one of my strongest suites has
-              been the ability to build scalable,robust backend systems using <strong>Spring Boot</strong> 
-              During my academic career, I have built several end-to-end systems that involved both
-              <strong>backend(Java,SpringBoot,FastAPI),frontend(React,TailWindCSS) with
-              integration of Database(MySQL,PostgreSQL,MongoDB) and optimization
-              technique(Redis caching) </strong>. My understanding of Data Structures and
-              Algorithms further strengthens my technical foundation.
+              been the ability to build scalable,robust backend systems using
+              <strong>Spring Boot</strong>
+              During my academic career, I have built several end-to-end systems
+              that involved both
+              <strong
+                >backend(Java,SpringBoot,FastAPI),frontend(React,TailWindCSS)
+                with integration of Database(MySQL,PostgreSQL,MongoDB) and
+                optimization technique(Redis caching) </strong
+              >. My understanding of Data Structures and Algorithms further
+              strengthens my technical foundation.
             </p>
-            <p style="margin-top: 10px;">
+            <p style="margin-top: 10px">
               I aim to build interfaces where clean code and thoughtful design
               converge, ensuring fast, accessible, and delightful products.
             </p>
@@ -6746,7 +6749,12 @@
             rel="noopener"
             >View Online</a
           >
-          <a class="btn" href="assets/Zeeshan_Resume_Updated(260825).pdf" download>Download CV (.pdf)</a>
+          <a
+            class="btn"
+            href="assets/Zeeshan_Resume_Updated(260825).pdf"
+            download
+            >Download CV (.pdf)</a
+          >
         </div>
       </div>
     </section>
@@ -6868,6 +6876,7 @@
                 class="input"
                 type="text"
                 id="fullName"
+                name="from_name"
                 placeholder="Full Name *"
                 required
               />
@@ -6875,6 +6884,7 @@
                 class="input"
                 type="email"
                 id="email"
+                name="from_email"
                 placeholder="Email Address *"
                 required
               />
@@ -6883,6 +6893,7 @@
               class="input"
               type="text"
               id="subject"
+              name="subject"
               placeholder="Subject *"
               style="margin-top: 12px"
               required
@@ -6890,6 +6901,7 @@
             <textarea
               class="textarea"
               id="message"
+              name="message"
               placeholder="Message *"
               style="margin-top: 12px"
               required
@@ -7215,6 +7227,11 @@
         ></iframe>
       </div>
     </div>
-    <script src="script.js"> </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <script src="script.js"></script>
   </body>
 </html>
