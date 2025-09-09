@@ -104,7 +104,7 @@ setActive();
 
 // Initialize EmailJS (must match your public key)
 emailjs.init({
-  publicKey: process.env.NEXT_PUBLIC_API_KEY,
+  publicKey: "UWbbcZhkGr03f9jnD",
 });
 
 const form = document.getElementById("contactForm");
@@ -140,7 +140,7 @@ form.addEventListener("submit", (e) => {
 
   // send via EmailJS
   emailjs
-    .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, form)
+    .sendForm("service_03eqkmv", "template_xdul4uf", form)
     .then(() => {
       statusEl.textContent = "Message sent! I will get back to you soon.";
       statusEl.style.display = "block";
@@ -152,11 +152,6 @@ form.addEventListener("submit", (e) => {
       statusEl.style.display = "block";
       console.error(err);
     });
-
-  console.log("EmailJS Public Key:", process.env.NEXT_PUBLIC_API_KEY)
-  console.log("Service ID:", process.env.NEXT_PUBLIC_SERVICE_ID)
-  console.log("Template ID:", process.env.NEXT_PUBLIC_TEMPLATE_ID)
-
 });
 
 // Footer year
