@@ -6,7 +6,8 @@
 *Built with HTML, CSS, TailwindCSS and Vanilla JavaScript.*
 
 ### Key Features
-- Explore my professional resume
-- Download a PDF version of my resume
-- Get in touch with me directly
-- Discover my core skills and expertise
+- Explore my professional resume.
+- Download a PDF version of my resume.
+- Get in touch with me directly.
+- Discover my core skills and expertise.
+- Responsive in nature,works in both Smart Phones and Laptops/Desktop.
