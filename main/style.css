@@ -627,32 +627,91 @@ section {
   opacity: 0.8;
 }
 
-/* About */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
-}
+
 .card {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px;
+  margin-top: 20px;
+
+  width: 100%;                 /* full width of container */
+  max-width: 720px;            /* limit max width */
+  box-sizing: border-box;      /* include padding and border in width */
+
+  /* Prevent overflow and wrap text nicely */
+  overflow-wrap: break-word;   /* break long words */
+  word-wrap: break-word;       /* legacy alias */
+  hyphens: auto;               /* add hyphens when supported */
+  
+  /* Optional: allow vertical shrinking if needed */
+  min-width: 0;                /* avoid flex/grid overflow issues */
 }
+
+
+/* ===== About section (responsive) ===== */
+
+/* Layout: left (photo+list) and right (card) */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column by default (mobile-first) */
+  gap: 20px;
+  align-items: start;
+}
+
+/* About list: items stack on mobile */
 .about-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr; /* 1 column on mobile */
   gap: 16px;
   margin-top: 20px;
 }
+
 .about-list .item {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px 14px;
-  overflow-wrap: break-word;
+  overflow-wrap: break-word; /* prevent horizontal overflow */
+  word-wrap: break-word; /* legacy alias */
+  hyphens: auto; /* nicer breaking when supported */
 }
+
+.about-list .label {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* Images inside circular container scale safely */
+.about-grid img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Bump to two columns from ~640px upward */
+@media (min-width: 40em) {
+  /* ≈640px */
+  .about-grid {
+    grid-template-columns: 320px 1fr; /* fixed-ish left, flexible right */
+    gap: 24px;
+  }
+  .about-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2-up cards */
+  }
+}
+
+/* Wider screens ≈1024px: give a bit more room left */
+@media (min-width: 64em) {
+  /* ≈1024px */
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 28px;
+  }
+}
+
+
 .label {
   color: var(--muted);
   font-size: 12px;

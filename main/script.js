@@ -104,7 +104,7 @@ setActive();
 
 // Initialize EmailJS (must match your public key)
 emailjs.init({
-  publicKey: 'UWbbcZhkGr03f9jnD'
+  publicKey: "UWbbcZhkGr03f9jnD",
 });
 
 const form = document.getElementById("contactForm");
@@ -126,23 +126,33 @@ form.addEventListener("submit", (e) => {
     !email.value.trim() ||
     !subject.value.trim() ||
     !message.value.trim()
-  ) return;
+  ) {
+    window.alert("Please fill all the details in the form");
+    return;
+  }
+  if (
+    email.value === "" ||
+    !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.value)
+  ) {
+    window.alert("Enter a valid Email Address");
+    return;
+  }
 
   // send via EmailJS
-  emailjs.sendForm('service_03eqkmv', 'template_xdul4uf', form)
+  emailjs
+    .sendForm("service_03eqkmv", "template_xdul4uf", form)
     .then(() => {
       statusEl.textContent = "Message sent! I will get back to you soon.";
       statusEl.style.display = "block";
       form.reset();
       setTimeout(() => (statusEl.style.display = "none"), 5000);
     })
-    .catch(err => {
+    .catch((err) => {
       statusEl.textContent = "Failed to send message. Please try again.";
       statusEl.style.display = "block";
       console.error(err);
     });
 });
-
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
